@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <!-- Tree View -->
+    <record id="screening_tree" model="ir.ui.view">
+        <field name="name">Screening</field>
+        <field name="model">patient.screening</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="symptoms" />
+                <field name="complains" />
+                <field name="bp" />
+                <field name="temperature" />
+                <field name="weight" />
+                <field name="spo2"/>
+                <field name="gcs"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="screening_form" model="ir.ui.view">
+        <field name="name">Screening</field>
+        <field name="model">patient.screening</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="symptoms"/>
+                            <field name="complains"/>
+                            <field name="bp"/>
+                            <field name="temperature"/>
+                            <field name="physical_appearances"/>
+                            <field name="pain_condition"/>
+                            <field name="appetite"/>
+                        </group>
+                 
+                           <group>
+                            <field name="weight"/>
+                            <field name="spo2"/>
+                            <field name="gcs"/>
+                            <field name="deformation"/>
+                            <field name="bladder_habits"/>
+                            <field name="sleep_conditions"/>
+                        </group>
+                    </group>
+                </sheet>
+            
+            </form>
+        </field>
+    </record>
+    
+    <!-- #action define vako cha -->
+    <record id="screening_action" model="ir.actions.act_window">
+        <field name="name">Patient Screening</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.screening</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">          
+                Create Patient Screening
+        </field>
+    </record>
+</odoo>

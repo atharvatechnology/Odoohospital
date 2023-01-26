@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <menuitem id="hospital_root"
+            name="Hospital"
+            web_icon="projects/static/description/hospital1.jpg"
+            sequence="1"/>
+       <menuitem id="hospital_dashboard_root"
+            name="Dashboard"
+            parent="hospital_root"
+            action="dashboard_action"
+            sequence="15"/>
+      <menuitem id="hospital_patient_root"
+            name="Patient"
+            parent="hospital_root"
+            sequence="20"/>
+      <menuitem id="hospital_appointment_root"
+            name="Appointment"
+            parent="hospital_root"
+            action="appointment_action"
+            sequence="30"/>
+      <menuitem id="hospital_doctor_root"
+            name="Doctor"
+            parent="hospital_root"
+            sequence="30"
+            action="doctor_action"
+            groups="projects.group_project_doctor"
+            />
+      <menuitem id="hospital_patient"
+            name="View Patient"
+            parent="hospital_patient_root"
+            action="patient_action"
+            sequence="40"/>
+      <menuitem id="hospital_child_patient"
+            name="View Child Patient"
+            parent="hospital_patient_root"
+            action="child_action"
+            
+            sequence="50"/>
+      <menuitem id="patient_screening"
+                  name="Patient Screening"
+                  parent="hospital_patient_root"
+                  action="screening_action"
+                  sequence="59"/>
+      <menuitem id="opdd_menun"
+            name="Department"
+            parent="hospital_root"
+            action="opd_action"
+            groups="projects.group_project_doctor"
+            sequence="60"/>
+      <menuitem id="test_menu"
+            name="Lab"
+            parent="hospital_root"
+            action="test_action"
+            groups="projects.group_project_doctor"
+            sequence="64"/>
+      <!-- 
+ <menuitem id="billl_menu"
+            name="Bill"
+            parent="hospital_root"
+            action="bill_action"
+            groups="projects.group_project_doctor"
+            sequence="70"/>   -->
+      <menuitem id="medicine_menu"
+            name="Medicine"
+            parent="hospital_root"
+            action="medicine_action"
+            groups="projects.group_project_doctor"
+            sequence="70"/>
+</odoo>

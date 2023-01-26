@@ -1,0 +1,36 @@
+{
+    'name': 'Hospital App',
+    'version': '14.0.1.0',#14.0 chai odoo ko version ho 1.0 chai app ko version
+    'category': 'Uncategorized',
+    'depends': [
+        'base',
+        'sale',
+        'mail',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/security_groups.xml',
+        'data/data.xml',
+        'data/mail_template.xml',
+        'data/cron.xml',
+        'wizard/create_appointment_view.xml',
+        'views/patient.xml',
+        'views/screening.xml',
+        'views/user.xml',
+        'views/appointment.xml',
+        'views/doctor.xml',
+        'views/child.xml',
+        'views/opd.xml',
+        'views/test.xml',
+        'views/bill.xml',
+        'views/medicine.xml',
+        'views/dashboard.xml',
+        'views/res_config.xml',
+        'views/menus.xml',
+        'report/patient_card.xml',
+        'report/report.xml',
+        
+    ],
+    'installable': True,
+    'application': True,
+}

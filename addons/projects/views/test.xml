@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="test_tree" model="ir.ui.view">
+        <field name="name"> Test</field>
+        <field name="model">hospital.test</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" />
+                <field name="test_complete"/>
+                <field name="currency_id" invisible="1" />
+                <field name="amount" options="{'currency_field': 'currency_id'}" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="test_form" model="ir.ui.view">
+        <field name="name">Test</field>
+        <field name="model">hospital.test</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="files" widget="image" class="oe_avatar"/>
+                        <field name="name"/>
+                        <field name="test_complete"/>
+                        <field name="patient_id"/>
+                        <field name="currency_id" invisible="1" />
+                        <field name="amount" options="{'currency_field': 'currency_id'}" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- #action define vako cha -->
+    <record id="test_action" model="ir.actions.act_window">
+        <field name="name">Hopital Test</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">          
+                Create Hospital Test
+        </field>
+    </record>
+</odoo>

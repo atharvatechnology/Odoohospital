@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="child_action" model="ir.actions.act_window">
+    <!-- '|' or operator -->
+        <field name="domain">['|', ('age', '&lt;=', 18),('gender', '=', 'male')]</field>
+        <field name="context">{'default_phone_number':'980657889','hide_gender':1}</field>
+        <field name="name">Child Patients</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,kanban,form</field>
+
+        <field name="help">          
+                Create your first child patient
+        </field>
+    </record>
+</odoo>

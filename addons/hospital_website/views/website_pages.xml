@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="todo_list_page" name="Todos - List">
+    <t t-call="web.frontend_layout">
+      <h1>All Todos</h1>
+
+      <ul>
+        <t t-foreach="todos" t-as="todo">
+          <li>
+            <span t-esc="todo.name"></span>
+          </li>
+        </t>
+      </ul>
+    </t>
+  </template>
+
+  <template id="redirect_public_user" name="Redirect public/ non authenticated to login page">
+    <html>
+      <head>
+        <meta http-equiv="refresh" content="3; url='/web/login'" />
+      </head>
+      <body>
+        <h1>Not Authorized! Redirecting to login page</h1>
+      </body>
+    </html>
+  </template>
+
+  <template id="todo_list_alt_page" name="Todos - List (ALT)">
+    <t t-call="web.frontend_layout" t-if="request.env.user.login != 'public'">
+      <h1>All Todos - ALT </h1>
+      <t t-set="todos" t-value="request.env['todo_app.todo'].search([])" />
+      <ul>
+        <t t-foreach="todos" t-as="todo">
+          <li>
+            <t t-esc="todo.name" />
+          </li>
+        </t>
+      </ul>
+    </t>
+    <t t-else="">
+      <t t-call="todo_app_website.redirect_public_user" />
+    </t>
+  </template>
+
+  <record id="todo_list_other_page" model="website.page">
+    <field name="is_published">True</field>
+    <field name="url">/todos-alt</field>
+    <field name="view_id" ref="todo_list_alt_page"/>
+    <field name="track">True</field>
+  </record>
+
+  <record id="todo_list_v2_page" model="website.page">
+    <field name="name">My Todos (v2)</field>
+    <field name="url">/todos-alt-v2</field>
+    <field name="type">qweb</field>
+    <field name="key">todo_app_website.todo_list_v2_page</field>
+    <field name="website_indexed" eval="False"/>
+    <field name="arch" type="xml">
+      <t t-call="website.layout">
+        <div id="wrap" class="oe_structure oe_empty"/>
+
+        <h1>All Todos - Variant 2</h1>
+        <t t-set="todos" t-value="request.env['todo_app.todo'].search([])" />
+        <ul>
+          <t t-foreach="todos" t-as="todo">
+            <li>
+              <t t-esc="todo.name" />
+            </li>
+          </t>
+        </ul>
+      </t>
+    </field>
+  </record>
+</odoo>

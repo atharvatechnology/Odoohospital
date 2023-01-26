@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="dashboard_tree" model="ir.ui.view">
+        <field name="name">Dashboard</field>
+        <field name="model">hospital.dashboard</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="patient_id"/>
+                <field name="test_name"/>
+                <field name="medicine"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="dashboard_form" model="ir.ui.view">
+        <field name="name">Dashboard</field>
+        <field name="model">hospital.dashboard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="test_name"/>
+                        <field name="medicine"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!-- graph view -->
+    <!-- <record id="dashboard_graph_view" model="ir.ui.view">
+        <field name="name">hospital.dashboard.graph.view</field>
+        <field name="model">hospital.dashboard</field>
+        <field name="arch" type="xml">
+                <field name="patient_id">
+                                <graph>
+                        <field name="age"/>
+                                    </graph>
+                </field>
+        </field>
+    </record> -->
+
+
+    <!-- #action define vako cha -->
+    <record id="dashboard_action" model="ir.actions.act_window">
+        <field name="name">Hopital Dashboard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.dashboard</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">          
+                Create Hospital Dashboard
+        </field>
+    </record>
+</odoo>

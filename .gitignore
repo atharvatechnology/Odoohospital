@@ -1,0 +1,16 @@
+.vscode
+.python_history
+.bash_history
+.psql_history
+
+venv
+*__
+*.py[cod]
+
+*.tar
+*.sql
+*.pgsql
+*~
+
+.env
+.cache

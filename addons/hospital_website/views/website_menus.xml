@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <record id="menu_todo_list" model="website.menu">
+      <field name="name">My Todos</field>
+      <field name="url">/todos</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">20</field>
+  </record>
+
+  <record id="menu_todo_list_alt" model="website.menu">
+      <field name="name">My Todos - Alt</field>
+      <field name="url">/todos-alt</field>
+      <field name="page_id" ref="todo_app_website.todo_list_other_page"/>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">15</field>
+  </record>
+
+  <record id="menu_todo_list_alt_v2" model="website.menu">
+      <field name="name">My Todos - V2</field>
+      <field name="url">/todos-alt-v2</field>
+      <field name="page_id" ref="todo_app_website.todo_list_v2_page"/>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">15</field>
+  </record>
+</odoo>

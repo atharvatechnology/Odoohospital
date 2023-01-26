@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <template id="_assets_backend_helpers" inherit_id="web._assets_backend_helpers">
+    <xpath expr="." position="inside">
+      <link rel="stylesheet" type="text/scss" href="/web_amnil/static/src/scss/bootstrap_overriden.scss"/>
+    </xpath>
+  </template>
+
+  <template id="_assets_primary_variables" inherit_id="web._assets_primary_variables">
+    <xpath expr="." position="inside">
+      <link rel="stylesheet" type="text/scss" href="/web_amnil/static/src/scss/primary_variables.scss"/>
+    </xpath>
+  </template>
+
+  <template id="assets_backend" inherit_id="web.assets_backend">
+    <xpath expr="//link[last()]" position="after">
+      <link rel="stylesheet" type='text/scss' href="/web_amnil/static/src/scss/custom_admin_style.scss" />
+    </xpath>
+
+    <xpath expr="//script[last()]" position="after">
+      <script type="text/javascript" src="/web_amnil/static/src/js/main.js"></script>
+    </xpath>
+  </template>
+
+  <template id="assets_frontend" inherit_id="web.assets_frontend" name="Frontend Assets Amnil Web">
+    <xpath expr="//link[last()]" position="after">
+      <link rel="stylesheet" href="/web_amnil/static/src/scss/login.scss" type="text/scss" />
+    </xpath>
+  </template>
+</odoo>

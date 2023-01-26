@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <!-- Tree View -->
+    <record id="user_tree" model="ir.ui.view">
+        <field name="name">User</field>
+        <field name="model">hospital.user</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1">
+                <field name="first_name" />
+                <field name="last_name" />
+                <field name="email" />
+                <field name="age" />
+                <field name="gender" />
+                <field name="phone_number"/>
+                <field name="user_type"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="user_form" model="ir.ui.view">
+        <field name="name">User</field>
+        <field name="model">hospital.user</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="age" invisible="context.get('hide_gender')"/>
+                            <field name="gender"/>
+                            <field name="user_type"/>
+                            <field name="phone_number"/>
+                        </group>
+                    </group>
+                </sheet>
+                <!-- chatter -->
+                <!-- <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div> -->
+            </form>
+        </field>
+    </record>
+    
+    <!-- #action define vako cha -->
+    <record id="user_action" model="ir.actions.act_window">
+        <field name="name">User</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.user</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">          
+                Register User
+        </field>
+    </record>
+</odoo>

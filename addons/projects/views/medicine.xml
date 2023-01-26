@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="medicine_tree" model="ir.ui.view">
+        <field name="name">Medicine</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <tree >
+                <!-- <field name="image" widget="image" class="oe_avatar"/> -->
+                <field name="name" />
+                <field name="currency_id" invisible="1" />
+                <field name="amount" options="{'currency_field': 'currency_id'}" />
+                <field name="medicine_type" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="medicine_form" model="ir.ui.view">
+        <field name="name">Medicine</field>
+        <field name="model">hospital.medicine</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <field name="name"/>
+                        <field name="currency_id" invisible="1" />
+                        <field name="amount" options="{'currency_field': 'currency_id'}" />
+                        <field name="medicine_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- #action define vako cha -->
+    <record id="medicine_action" model="ir.actions.act_window">
+        <field name="name">Hopital Medicine</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.medicine</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">          
+                Create Hospital Medicine
+        </field>
+    </record>
+</odoo>

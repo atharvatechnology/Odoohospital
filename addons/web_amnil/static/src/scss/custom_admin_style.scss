@@ -1,0 +1,82 @@
+// .o_search_panel {
+//     flex: 0 0 220px;
+//     overflow: auto;
+//     height: 100%;
+//     padding: 8px 8px 32px 16px;
+//     border-right: 1px solid #dee2e6;
+//     background-color: #25967d;
+//   }
+//   html .o_web_client > .o_action_manager > .o_action > .o_control_panel {
+//     -webkit-box-flex: 0;
+//     -webkit-flex: 0 0 auto;
+//     flex: 0 0 auto;
+//     background-color: #25967d;
+//   }
+//   .breadcrumb {
+//     display: -webkit-box;
+//     display: -webkit-flex;
+//     display: flex;
+//     -webkit-flex-wrap: wrap;
+//     flex-wrap: wrap;
+//     padding: 0 0;
+//     margin-bottom: 0;
+//     list-style: none;
+//     background-color: #25967d;
+//     border-radius: 3px;
+//   }
+//   .o_control_panel .breadcrumb > li {
+//     display: inline-block;
+//     max-width: 90%;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     vertical-align: top;
+//     color: white;
+//   }
+//   .o_search_panel .o_search_panel_section_header {
+//     cursor: default;
+//     padding: 8px 0;
+//     color: white;
+//   }
+//   .o_control_panel .o_cp_bottom_right > .o_cp_pager .o_pager .o_pager_counter {
+//     margin-right: 5px;
+//     min-width: 44px;
+//     color: white;
+//   }
+//   .btn:not(:disabled):not(.disabled) {
+//     cursor: pointer;
+//     background-color: #c1c623;
+//   }
+//   a:hover {
+//     color: #dfddf4;
+//     text-decoration: none;
+//   }
+.o_main_navbar {
+  position: relative;
+  height: 65px;
+  border-bottom: 3px solid #8a5910;
+  background: linear-gradient(90deg, #221e67 0%, #5e1f70 24.95%, #7a2976 48.4%, #a3387d 82.83%, #b63f81 100%);
+  color: white;
+}
+
+.o_menu_brand {
+  display: block;
+  float: left;
+  margin-right: 35px;
+  user-select: none;
+  font-size: 2px;
+  // color: white;
+  // font-size: 22px;
+  // font-weight: 500;
+  line-height: 46px;
+  cursor: pointer;
+  // font-size: 50px;
+  background: url("/projects/static/description/ncell.svg") no-repeat; 
+  width: 60px; 
+  height: 60px; 
+  display: block; 
+  text-indent: -9999px;
+}
+*, ::before, ::after {
+  box-sizing: content-box;
+}

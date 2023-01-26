@@ -1,0 +1,28 @@
+image: docker
+
+services:
+    - docker:dind
+
+stages:
+    - deploy
+
+variables:
+    PROJECT_ROOT_DIR: /var/www/$CI_PROJECT_NAME
+    PROJECT_ROOT_DIR_UAT: /var/www/uat-$CI_PROJECT_NAME
+
+deploy-production:
+    stage: deploy
+    environment:
+        name: prod
+        url: http://jupiter.pocketpandit.com/
+    only:
+        - production
+    tags:
+        - production
+    script:
+        - sudo mkdir -p $PROJECT_ROOT_DIR
+        - sudo cp -a $CI_PROJECT_DIR/. $PROJECT_ROOT_DIR
+        - sudo chown -R 1000:1000 $PROJECT_ROOT_DIR
+        - cd $PROJECT_ROOT_DIR
+        - docker-compose up -d --build
+        - docker-compose restart web

@@ -1,0 +1,15 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_hospital_doctor_group,access_hospital Doctor group,model_hospital_patient,projects.group_project_doctor,1,1,1,1
+access_hospital_nurse_group,access_hospital Nurse group,model_hospital_patient,projects.group_project_nurse,1,1,1,0
+access_hospital_patient_group,access_hospital patient group,model_hospital_patient,projects.group_projecs_patient,1,1,0,0
+access_patient_screening,access_patient_screening,model_patient_screening,base.group_user,1,1,1,1
+access_hospital_user,access_hospital_user,model_hospital_user,base.group_user,1,1,1,1
+access_hospital_appointment,access_hospital_appointment,model_hospital_appointment,base.group_user,1,1,1,1
+access_create_appointment_wizard,access_create_appointment_wizard,model_create_appointment_wizard,base.group_user,1,1,1,1
+access_hospital_doctor,access_hospital_doctor,model_hospital_doctor,base.group_user,1,1,1,1
+access_appointment_prescription_lines,access_appointment_prescription_lines,model_appointment_prescription_lines,base.group_user,1,1,1,1
+access_hospital_opd,access_hospital_opd,model_hospital_opd,base.group_user,1,1,1,1
+access_hospital_test,access_hospital_test,model_hospital_test,base.group_user,1,1,1,1
+access_hospital_bill,access_hospital_bill,model_hospital_bill,base.group_user,1,1,1,1
+access_hospital_medicine,access_hospital_medicine,model_hospital_medicine,base.group_user,1,1,1,1
+access_hospital_dashboard,access_hospital_dashboard,model_hospital_dashboard,base.group_user,1,1,1,1

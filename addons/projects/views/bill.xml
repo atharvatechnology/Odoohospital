@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="bill_tree" model="ir.ui.view">
+        <field name="name">Bill</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="patient_id" />
+                <field name="test_name" />
+                <field name="bill_number" />
+                <field name="medicine"/>
+                <field name="total_amount" />
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="bill_form" model="ir.ui.view">
+        <field name="name">Bill</field>
+        <field name="model">hospital.bill</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="patient_id"/>
+                        <field name="test_name"/>
+                        <field name="medicine"/>
+                        <field name="bill_number"/>
+                        <field name="total_amount" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- #action define vako cha -->
+    <record id="bill_action" model="ir.actions.act_window">
+        <field name="name">Hopital Bill</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.bill</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">          
+                Create Hospital Bill
+        </field>
+    </record>
+</odoo>

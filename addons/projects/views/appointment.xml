@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_confirm_appointments" model="ir.actions.server">
+        <field name="name">Confirm Appointment</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_hospital_appointment"/>
+        <field name="binding_model_id" ref="model_hospital_appointment"/>
+        <field name="state">code</field>
+        <field name="code">records.action_confirm()</field>
+    </record>
+    <!-- Tree View -->
+    <record id="appointment_tree" model="ir.ui.view">
+        <field name="name">Appointment</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="age" />
+                <field name="userid"/>
+                <!-- <field name="patient_id" optional="show"/> -->
+                <field name="doctor_id" widget="many2one_avatar"/>
+                <field name="note" optional="hide"/>
+                <field name="state" optional="show"/>
+                <field name="date_appointment" optional="show"/>
+                <field name="date_checkup" optional="show"/>
+                <field name="progress"  widget="progressbar"/>
+          
+            </tree>
+        </field>
+    </record>
+    <!-- Form View -->
+    <record id="appointment_form" model="ir.ui.view">
+        <field name="name">Appointment</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                <!-- options="{'clickable': '1'}" -->
+                    <!-- Using button for status bar -->
+                    <button id="button_consultation" name="action_consultation" string="In Cosultation" class="btn-primary" states="draft"
+                type="object" />
+                    <button id="button_done" name="action_done" string="Mark As Done" class="btn-primary"  states="in_consultation"
+                type="object"/>
+                    <button id="button_draft" name="action_draft" string="Set To Draft" class="btn-primary" states="cancel"
+                type="object"/>
+                    <button id="button_cancel" name="action_cancel" string="Cancel"  states="draft,in_consultation"
+                type="object"/>
+
+                    <field name="state" nolabel="1" widget="statusbar"  options="{'clickable': '1'}"
+                        statusbar_visible="draft,in_consultation,done" />
+                    <!-- <button id="action_url" name="action_url"  string="Open URL" class="btn-primary"
+                type="object"/> -->
+                </header>
+                <sheet>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="priority" widget="priority" class="mr-3"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="patient_id"/>
+                            <field name="age" />
+                            <field name="gender" readonly="1" force_save="1"/>
+                            <field name="booking_date" help="Date of Booking" default_focus="1"/>
+                            <field name="is_appointment" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="date_appointment"/>
+                            <field name="doctor_id"/>
+                            <field name="problem"/>
+
+                            <field name="date_checkup"/>
+                            <!-- <field name="age" widget="percentpie"/> -->
+                        </group>
+                    </group>
+                    <notebook>
+                          <page string="Progress" name="progress">
+                            <group>
+                                    <field name="progress" 
+                                        widget="gauge" 
+                                        style="width:160px;height:120px;cursor:pointer"
+                                        options="{'max_field':'lead_objective'}">
+                                        
+                                    </field>
+                            </group>
+                        </page>
+                        <page string="Doctor Prescription" name="prescription">
+                            <group>
+                                <field name="prescription" placeholder="Enter your prescription" options="{'collaborative': true, 'resizable':true}"/>
+                            </group>
+                        </page>
+                        <page string="Medicine" name="medicine">
+                            <field name="prescription_line_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="qty"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="name"/>
+                                        </group>
+                                        <group>
+                                            <field name="qty"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Other info" name="other_info">
+                            <group>
+                                <field name="note"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <!-- chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="appointment_action" model="ir.actions.act_window">
+        <field name="name">Appointment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">          
+                Create your first Appointment
+        </field>
+    </record>
+</odoo>
